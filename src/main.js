@@ -10,9 +10,13 @@ import Vue from 'vue'
 import App from './App'
 // 完整的写法 import router from './route.js';
 import router from './router'
-
+import iView from 'view-design'
 // 它会阻止你显示显示生产模式的消息，常用作指令
 Vue.config.productionTip = false
+
+Vue.use(iView, {
+
+})
 
 /* eslint-disable no-new */
 /*

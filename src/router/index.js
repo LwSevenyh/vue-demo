@@ -11,6 +11,11 @@ export default new Router({
       name: 'HelloWorld',
       // component: HelloWorld // 命名路由组件
       component: () => import('@/components/HelloWorld.vue')
+    },
+    {
+      path: '/col',
+      name: 'col',
+      component: () => import('@/components/col.vue')
     }
   ]
 })
