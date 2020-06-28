@@ -63,3 +63,15 @@
 #### 2  .editorconfig 看名字是编辑器配置文件，不晓得是哪款编辑器，没有使用过。
 
 #### 3  .gitignore 用来过滤一些版本控制的文件，比如node_modules文件夹
+
+
+
+
+
+## 引入iview
+>1）安装iView，在项目下
+    npm install  iview  --save
+2 ) 在 webpack 入口页面 main.js （E:\managerSys\manager-sys\src\main.js）中配置
+import iView from 'iview'; // 导入组件库
+import 'iview/dist/styles/iview.css'; // 导入样式
+Vue.use(iView);

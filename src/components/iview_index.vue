@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <a href="#/col">Col</a>
+
   </div>
 </template>
 

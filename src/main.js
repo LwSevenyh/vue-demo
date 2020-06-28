@@ -10,14 +10,12 @@ import Vue from 'vue'
 import App from './App'
 // 完整的写法 import router from './route.js';
 import router from './router'
-import iView from 'view-design'
+// import iView from 'view-design'
+import iView from 'iview'// 导入iview组件库
+import 'iview/dist/styles/iview.css' // 导入样式
+Vue.use(iView) // 使用iview
 // 它会阻止你显示显示生产模式的消息，常用作指令
 Vue.config.productionTip = false
-
-Vue.use(iView, {
-
-})
-
 /* eslint-disable no-new */
 /*
 在js里面，new 一个对象，需要赋值给某个值（变量），

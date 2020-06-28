@@ -7,10 +7,10 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'HelloWorld',
+      path: '/iview_index',
+      name: 'iview_index',
       // component: HelloWorld // 命名路由组件
-      component: () => import('@/components/HelloWorld.vue')
+      component: () => import('@/components/iview_index.vue')
     },
     {
       path: '/col',
