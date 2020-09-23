@@ -13,9 +13,17 @@ import router from './router'
 // import iView from 'view-design'
 import iView from 'iview'// 导入iview组件库
 import 'iview/dist/styles/iview.css' // 导入样式
-Vue.use(iView) // 使用iview
 // 它会阻止你显示显示生产模式的消息，常用作指令
+
+import i18n from '@/locale'
+
+import store from './store'
+
 Vue.config.productionTip = false
+
+Vue.use(iView, {
+  i18n: (key, value) => i18n.t(key, value)
+})
 /* eslint-disable no-new */
 /*
 在js里面，new 一个对象，需要赋值给某个值（变量），
@@ -27,4 +35,17 @@ new Vue({
   router,
   components: { App }, // 是声明有哪些组件
   template: '<App/>' // 使用哪个组件
+})
+
+document.addEventListener('DOMContentLoaded', () => {
+  const el = document.body.appendChild(document.createElement('app'))
+  const app = new Vue({
+    el,
+    router,
+    i18n,
+    store,
+    render: h => h(App)
+  })
+
+  if (process.env.NODE_ENV === 'development') console.log(app)
 })

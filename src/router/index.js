@@ -16,6 +16,11 @@ export default new Router({
       path: '/col',
       name: 'col',
       component: () => import('@/components/col.vue')
+    },
+    {
+      path: '/cache',
+      name: 'cache',
+      component: () => import('@/cache/index.vue')
     }
   ]
 })
