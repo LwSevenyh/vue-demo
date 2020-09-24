@@ -2,10 +2,12 @@
     <div>
         <Button type="primary" @click="onShowCategoryTree">类别</Button>
         <Button type="primary" @click="CategoryCache">设置缓存获取类别</Button>
-        <Modal v-model="show_category_tree_flag" title="项目类别">
-            <Tree :data="catsData"></Tree>
-        </Modal>
-        <Spin size="large" fix v-if="spinShow"></Spin>
+        <div>
+          <Modal v-model="show_category_tree_flag" title="项目类别" :mask-closable="false">
+            <Spin size="large" fix v-if="spinShow"></Spin>
+            <Tree :data="catsData" v-else></Tree>
+          </Modal>
+        </div>
     </div>
 </template>
 <script>
@@ -13,7 +15,7 @@
 import {
   categoryTreeShow
 } from '../api/index'
-import { mapActions, mapState } from 'vuex'
+// import { mapActions, mapState } from 'vuex'
 import cache from '../lib/func/cache'
 
 export default {
@@ -26,7 +28,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions('categroy', ['getCate']),
+    // ...mapActions('categroy', ['getCate']),
     // onShowCategoryTree() {
     //   this.getCate()
     // }
