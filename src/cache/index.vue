@@ -1,6 +1,7 @@
 <template>
     <div>
         <Button type="primary" @click="onShowCategoryTree">类别</Button>
+        <Button type="primary" @click="CategoryCache">设置缓存获取类别</Button>
         <Modal v-model="show_category_tree_flag" title="项目类别">
             <Tree :data="catsData"></Tree>
         </Modal>
@@ -20,7 +21,8 @@ export default {
     return {
       show_category_tree_flag: false,
       spinShow: false,
-      catsData: []
+      catsData: [],
+      key: 'CATEGORY'
     }
   },
   methods: {
@@ -28,15 +30,18 @@ export default {
     // onShowCategoryTree() {
     //   this.getCate()
     // }
-    onShowCategoryTree () {
-      let _key = 'CATEGORY'
-      cache.checkActive(_key).then(res => {
+    CategoryCache () {
+      this.show_category_tree_flag = true
+      cache.checkActive(this.key).then(res => {
         console.log(res)
         if (res) {
-          cache.get(_key).then(data => { this.catsData = data })
+          cache.get(this.key).then(data => { this.catsData = data })
+        } else {
+          this.onShowCategoryTree()
         }
       })
-
+    },
+    onShowCategoryTree () {
       this.show_category_tree_flag = true
       this.spinShow = true
       // 取得全部分类
@@ -44,7 +49,7 @@ export default {
         let data = response.data.data
         this.catsData = data.categroy_tree
         this.spinShow = false
-        cache.set(_key, data.categroy_tree)
+        cache.set(this.key, data.categroy_tree)
       })
     }
   },
