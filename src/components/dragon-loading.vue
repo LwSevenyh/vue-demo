@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-04-25 20:02:27
- * @LastEditTime: 2021-04-25 20:04:57
+ * @LastEditTime: 2021-04-25 20:22:13
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /vue-demo/src/components/donghua.vue
@@ -9,7 +9,7 @@
 <template>
   <div>
     <div style="width: 0; height: 0; overflow: hidden">
-      <img src="./img/icon.png" />
+      <!-- <img src="./img/icon.png" /> -->
     </div>
     <div class="main">
       <div class="shadow-wrapper">
@@ -38,8 +38,16 @@
   </div>
 </template>
 <script>
-export default {};
+
+// export default {
+//   data() {
+//     return {
+
+//     }
+//   }
+// }
 </script>
+
 <style scoped>
 html {
   height: 100%;
