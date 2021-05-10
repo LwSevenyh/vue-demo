@@ -1,34 +1,41 @@
 <!--
  * @Author: your name
  * @Date: 2021-04-25 20:02:27
- * @LastEditTime: 2021-04-25 20:22:13
+ * @LastEditTime: 2021-05-10 13:55:01
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /vue-demo/src/components/donghua.vue
 -->
 <template>
-  <div>
-    <div style="width: 0; height: 0; overflow: hidden">
-      <!-- <img src="./img/icon.png" /> -->
-    </div>
+  <div class="dragon-div">
     <div class="main">
+      <!-- 圆圈阴影 -->
       <div class="shadow-wrapper">
         <div class="shadow"></div>
       </div>
       <div class="dragon">
+        <!-- 身体 -->
         <div class="body"></div>
+        <!-- 头部左上角 -->
         <div class="horn-left"></div>
+        <!-- 头部右上角 -->
         <div class="horn-right"></div>
         <div class="eye left"></div>
         <div class="eye right"></div>
+        <!-- 左眼红晕 -->
         <div class="blush left"></div>
+        <!-- 右眼红晕 -->
         <div class="blush right"></div>
+        <!-- 嘴巴 -->
         <div class="mouth"></div>
+        <!-- 尾部 -->
         <div class="tail-sting"></div>
       </div>
+      <!-- 口吐火 -->
       <div class="fire-wrapper">
         <div class="fire"></div>
       </div>
+      <!-- 进度条 -->
       <div class="progress">
         <div class="outer">
           <div class="inner"></div>
@@ -38,26 +45,19 @@
   </div>
 </template>
 <script>
-
+// import Blush from '../assets/blush.png'
 // export default {
-//   data() {
+//   data () {
 //     return {
-
+//       Blush
 //     }
 //   }
 // }
 </script>
 
 <style scoped>
-html {
-  height: 100%;
-}
-
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  background: #fff6e3;
+.dragon-div {
+  background-color: #fff6e3;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -67,6 +67,7 @@ body {
   position: relative;
 }
 
+/* 身体部分 */
 .dragon {
   width: 200px;
   height: 140px;
@@ -74,13 +75,15 @@ body {
   animation: zoomIn 0.5s cubic-bezier(0.47, 0, 0.75, 0.72) infinite alternate;
 }
 
+/* 身体部分 */
 .dragon .body {
   position: absolute;
   top: 0;
   right: 0;
   width: 180px;
   height: 128px;
-  background: url(./img/body.png) no-repeat center center;
+  background: url("../assets/body.png") no-repeat center center;
+  /* 把图像图像扩展至最大尺寸，以使其宽度和高度完全适应内容区域 */
   background-size: contain;
   z-index: 10;
 }
@@ -91,10 +94,10 @@ body {
   left: 32px;
   width: 31px;
   height: 31px;
-  background: url(./img/horn-left.png) no-repeat;
+  background-image: url("../assets/horn-left.png");
+  background-repeat: no-repeat;
   background-size: contain;
   z-index: 9;
-  transform-origin: 150% 200%;
   transform: rotate(-5deg);
   animation: swingRight 0.5s cubic-bezier(0.47, 0, 0.75, 0.72) infinite
     alternate;
@@ -106,10 +109,10 @@ body {
   left: 110px;
   width: 34px;
   height: 31px;
-  background: url(./img/horn-right.png) no-repeat;
+  background-image: url("../assets/horn-right.png");
+  background-repeat: no-repeat;
   background-size: contain;
   z-index: 9;
-  transform-origin: -50% 200%;
   transform: rotate(5deg);
   animation: swingLeft 0.5s cubic-bezier(0.47, 0, 0.75, 0.72) infinite alternate;
 }
@@ -119,7 +122,8 @@ body {
   top: 39px;
   width: 11px;
   height: 11px;
-  background: url(./img/eye.png) no-repeat;
+  background-image: url("../assets/eye.png");
+  background-repeat: no-repeat;
   background-size: contain;
   z-index: 12;
 }
@@ -130,16 +134,17 @@ body {
 
 .dragon .eye.right {
   left: 118px;
-  transform-origin: 50% 50%;
   transform: rotate(180deg);
 }
 
+/* 红晕 */
 .dragon .blush {
   position: absolute;
   top: 46px;
   width: 15px;
   height: 9px;
-  background: url(./img/blush.png) no-repeat;
+  background-image: url("../assets/blush.png");
+  background-repeat: no-repeat;
   background-size: 100% 100%;
   z-index: 11;
   animation: blush 0.5s ease infinite alternate;
@@ -159,25 +164,28 @@ body {
   left: 49px;
   width: 78px;
   height: 56px;
-  background: url(./img/mouth.png) no-repeat;
+  background-image: url("../assets/mouth.png");
+  background-repeat: no-repeat;
   background-size: 100%;
   z-index: 11;
   animation: openMouth 1s ease infinite;
 }
 
+/* 尾部 */
 .dragon .tail-sting {
   position: absolute;
   top: 67px;
   left: 139px;
   width: 40px;
   height: 38px;
-  background: url(./img/tail-sting.png) no-repeat;
+  background-image: url("../assets/tail-sting.png");
+  background-repeat: no-repeat;
   background-size: contain;
   z-index: 9;
-  transform-origin: 0 100%;
   animation: tailUp 0.5s cubic-bezier(0.47, 0, 0.75, 0.72) infinite alternate;
 }
 
+/* 圆圈 阴影 */
 .shadow-wrapper {
   position: absolute;
   top: 110px;
@@ -194,6 +202,7 @@ body {
   animation: zoomIn 0.5s cubic-bezier(0.47, 0, 0.75, 0.72) infinite alternate;
 }
 
+/* 火🔥 */
 .fire-wrapper {
   position: absolute;
   width: 40px;
@@ -208,11 +217,13 @@ body {
   padding-bottom: 135%;
   width: 100%;
   height: 100%;
-  background: url(./img/fire.png) no-repeat;
+  background-image: url("../assets/fire.png");
+  background-repeat: no-repeat;
   background-size: contain;
   animation: fire 1s ease-out infinite;
 }
 
+/* 进度条 */
 .progress {
   margin-top: 30px;
   width: 100%;
@@ -233,14 +244,17 @@ body {
   animation: loading 2s linear infinite;
 }
 
+/* keyframes 创建 动画规则  */
 @keyframes zoomIn {
   100% {
+    /* 1.16 比例放大 */
     transform: scale(1.16, 1.16);
   }
 }
 
 @keyframes swingRight {
   100% {
+    /* 旋转 5度*/
     transform: rotate(5deg);
   }
 }
@@ -251,6 +265,7 @@ body {
   }
 }
 
+/* 透明度 从 0 到 1 */
 @keyframes blush {
   0% {
     opacity: 0;
@@ -261,28 +276,32 @@ body {
   }
 }
 
+/* 裁剪 选择显示区域 */
+/* ellipse() 定义一个椭圆 */
+/* ellipse()可以传人3个可选参数；
+ellipse( [ <shape-radius>{2} ]? [ at <position> ]? )
+1. 椭圆的X轴半径，默认是宽度的一半，支持百分比
+2. 椭圆的Y轴半径，默认是高度的一半，支持百分比
+3. 椭圆中心位置，默认是元素的中心点 */
 @keyframes openMouth {
   0% {
-    -webkit-clip-path: ellipse(20% 0% at 50% 0);
     clip-path: ellipse(20% 0% at 50% 0);
   }
 
   50% {
-    -webkit-clip-path: ellipse(100% 100% at 50% 0);
     clip-path: ellipse(100% 100% at 50% 0);
   }
 
   70% {
-    -webkit-clip-path: ellipse(100% 100% at 50% 0);
     clip-path: ellipse(100% 100% at 50% 0);
   }
 
   100% {
-    -webkit-clip-path: ellipse(20% 0% at 50% 0);
     clip-path: ellipse(20% 0% at 50% 0);
   }
 }
 
+/* 从 开始到结束 Y轴 比例变化 */
 @keyframes tailUp {
   0% {
     transform: scaleY(0.9);
@@ -293,12 +312,14 @@ body {
   }
 }
 
+/* 加载100% */
 @keyframes loading {
   100% {
     width: 100%;
   }
 }
 
+/* 火 顶部距离 */
 @keyframes fireUp {
   0% {
     top: 70px;
